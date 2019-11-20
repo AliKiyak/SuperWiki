@@ -24,7 +24,6 @@ public class FightFragment extends Fragment {
 
     DatabaseHelper db;
     List<Character> characters;
-    private FightViewModel fightViewModel;
 
     public static FightFragment newInstance() {
         return new FightFragment();
@@ -34,9 +33,8 @@ public class FightFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         db = new DatabaseHelper(getContext());
-        fightViewModel = ViewModelProviders.of(this).get(FightViewModel.class);
         View view = inflater.inflate(R.layout.fight_fragment, container, false);
-        this.characters = fightViewModel.getCharacters(db);
+        this.characters = getCharacters();
         ArrayAdapter<Character> characterAdapter =
                 new ArrayAdapter<Character>(getContext(), R.layout.support_simple_spinner_dropdown_item, characters);
         final Spinner firstCharacterSpinner =
@@ -47,6 +45,10 @@ public class FightFragment extends Fragment {
         seoondCharacterSpinner.setAdapter(characterAdapter);
 
         return view;
+    }
+
+    public List<Character> getCharacters() {
+        return db.getCharacters();
     }
 
 

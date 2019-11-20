@@ -3,46 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_search">
 
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="be.thomasmore.superwiki.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="be.thomasmore.superwiki.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="be.thomasmore.superwiki.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_tools"
-        android:name="be.thomasmore.superwiki.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="be.thomasmore.superwiki.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
-
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="be.thomasmore.superwiki.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
     <fragment
         android:id="@+id/nav_fight"
         android:name="be.thomasmore.superwiki.ui.fight.FightFragment"
         android:label="Fight"
         tools:layout="@layout/fight_fragment" />
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="be.thomasmore.superwiki.ui.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/search_fragment" />
 </navigation>
