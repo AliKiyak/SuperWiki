@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Seoond character"
+            android:text="Second character"
             android:textColor="@color/white"
             android:textSize="32dp"
             android:fontFamily="@font/poppins"
