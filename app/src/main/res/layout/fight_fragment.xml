@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Fight!"
+            android:textColor="@color/white"
+            android:textSize="50dp"
+            android:fontFamily="@font/poppins"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="First character"
+            android:textColor="@color/white"
+            android:textSize="32dp"
+            android:fontFamily="@font/poppins"
+            android:layout_marginLeft="30dp"/>
+
+        <Spinner
+            android:id="@+id/characterspinner1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawSelectorOnTop="true"
+            android:background="@color/white"
+            android:layout_marginHorizontal="25dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="V.S"
+            android:fontFamily="@font/poppins"
+            android:textSize="50dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_marginVertical="35dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Seoond character"
+            android:textColor="@color/white"
+            android:textSize="32dp"
+            android:fontFamily="@font/poppins"
+            android:layout_marginLeft="30dp"/>
+
+        <Spinner
+            android:id="@+id/characterspinner2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawSelectorOnTop="true"
+            android:background="@color/white"
+            android:layout_marginHorizontal="25dp"
+            />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Fight!"
+            android:background="@color/yellowAccent"
+            android:layout_marginTop="50dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
