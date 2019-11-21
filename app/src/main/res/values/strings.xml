@@ -16,5 +16,13 @@
     <string name="menu_search">Search</string>
     <string name="menu_favorites">Favorites</string>
     <string name="menu_fight">Fight</string>
+    <string name="menu_info">Info</string>
     <string name="menu_logout">Logout</string>
+
+    <string name="made_by">
+        This app was made by Din Vanvewezemael, Ali Kiyak and Wesley Monten
+    </string>
+    <string name="info">
+        With the Super Wiki you can store your favorite superheroes and find out which one would win in a fight!
+    </string>
 </resources>

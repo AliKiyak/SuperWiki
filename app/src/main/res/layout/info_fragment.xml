@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.info.InfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/authors_"
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:text="Authors:"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:gravity="top"
+            android:fontFamily="@font/poppins"
+            />
+
+        <TextView
+            android:id="@+id/this_app_wa"
+            android:layout_width="358dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@string/made_by"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="174dp"
+                    android:src="@drawable/ali_kiyak_foto"
+                    android:foreground="@drawable/rounded_fg"
+                    android:layout_margin="10dp"
+                    android:layout_marginRight="20dp"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="174dp"
+                    android:foreground="@drawable/rounded_fg"
+                    android:src="@drawable/din_vanwezemael_foto"
+                    android:layout_margin="10dp"
+                    android:layout_marginRight="20dp"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="174dp"
+                    android:foreground="@drawable/rounded_fg"
+                    android:src="@drawable/wesley_monten_foto"
+                    android:layout_margin="10dp"
+                    android:layout_marginRight="20dp"/>
+
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_info_"
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:text="App Info:"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:gravity="top" />
+
+        <TextView
+            android:id="@+id/with_the_su"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="top"
+            android:text="@string/info"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

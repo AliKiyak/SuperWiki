@@ -15,4 +15,9 @@
         android:name="be.thomasmore.superwiki.ui.search.SearchFragment"
         android:label="Search"
         tools:layout="@layout/search_fragment" />
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="be.thomasmore.superwiki.ui.info.InfoFragment"
+        android:label="Info"
+        tools:layout="@layout/info_fragment" />
 </navigation>
