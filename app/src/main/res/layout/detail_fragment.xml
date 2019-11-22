@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailFragment">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/character_image"
+                android:layout_width="200dp"
+                android:layout_height="180dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/character_name"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="top"
+                    android:text="Character"
+                    android:textColor="#FFFFFF"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/character_stats"
+                    android:layout_width="311dp"
+                    android:layout_height="39dp"
+                    android:text="Stats"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="24sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="top" />
+                <TextView
+                    android:id="@+id/stats_intelligence"
+                    android:layout_width="311dp"
+                    android:layout_height="20dp"
+                    android:text="Intelligence: "
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="top" />
+                <TextView
+                    android:id="@+id/stats_strength"
+                    android:layout_width="311dp"
+                    android:layout_height="20dp"
+                    android:text="Strength: "
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="top" />
+                <TextView
+                    android:id="@+id/stats_speed"
+                    android:layout_width="311dp"
+                    android:layout_height="20dp"
+                    android:text="Speed: "
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="top" />
+                <TextView
+                    android:id="@+id/stats_durability"
+                    android:layout_width="311dp"
+                    android:layout_height="20dp"
+                    android:text="Durability: "
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="top" />
+                <TextView
+                    android:id="@+id/stats_power"
+                    android:layout_width="311dp"
+                    android:layout_height="20dp"
+                    android:text="Power: "
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="top" />
+                <TextView
+                    android:id="@+id/stats_combat"
+                    android:layout_width="311dp"
+                    android:layout_height="20dp"
+                    android:text="Combat: "
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="top" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/character_biography"
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:text="Biography"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:gravity="top" />
+
+        <TextView
+            android:id="@+id/biography_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Full name:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/biography_alter_egos"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Alter egos:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/biography_place_of_birth"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Place of birth:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/biography_first_appearance"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="First appearance:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/biography_publisher"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Publisher:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/biography_alignment"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Alignment:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/character_appearance"
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:text="Appearance"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:gravity="top"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/appearance_gender"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Gender:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/appearance_race"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Race:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/appearance_eye_color"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Eye color:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/appearance_hair_color"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Hair color:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/character_work"
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:text="Work"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:gravity="top"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/work_occupation"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Occupation:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/work_base"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Base:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/character_connections"
+            android:layout_width="311dp"
+            android:layout_height="39dp"
+            android:text="Connections"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:gravity="top"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/connections_group_affiliation"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Group affiliation:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/connections_relatives"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="top"
+            android:text="Relatives:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Save"
+            android:background="@color/yellowAccent"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+    </ScrollView>
+</FrameLayout>

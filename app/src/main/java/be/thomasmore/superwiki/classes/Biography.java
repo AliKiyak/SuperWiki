@@ -1,11 +1,14 @@
 package be.thomasmore.superwiki.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Biography {
 
     private long id;
     private String fullName;
     private String alterEgo;
-    private String alias;
+    private ArrayList<String> aliases;
     private String firstAppearance;
     private String publisher;
     private String alignment;
@@ -14,11 +17,11 @@ public class Biography {
     public Biography() {
     }
 
-    public Biography(long id, String fullName, String alterEgo, String alias, String firstAppearance, String publisher, String alignment, String placeOfBirth) {
+    public Biography(long id, String fullName, String alterEgo, ArrayList<String> aliases, String firstAppearance, String publisher, String alignment, String placeOfBirth) {
         this.id = id;
         this.fullName = fullName;
         this.alterEgo = alterEgo;
-        this.alias = alias;
+        this.aliases = aliases;
         this.firstAppearance = firstAppearance;
         this.publisher = publisher;
         this.alignment = alignment;
@@ -49,12 +52,12 @@ public class Biography {
         this.alterEgo = alterEgo;
     }
 
-    public String getAlias() {
-        return alias;
+    public ArrayList<String> getAliases() {
+        return aliases;
     }
 
-    public void setAlias(String alias) {
-        this.alias = alias;
+    public void setAliases(ArrayList<String>  alias) {
+        this.aliases = aliases;
     }
 
     public String getFirstAppearance() {

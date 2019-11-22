@@ -64,37 +64,21 @@ public class Character {
         this.naam = naam;
     }
 
-    public long getAppearanceId() {
-        return appearanceId;
-    }
+    public long getAppearanceId() { return appearanceId; }
 
-    public void setAppearanceId(long appearanceId) {
-        this.appearanceId = appearanceId;
-    }
+    public void setAppearanceId(long appearanceId) { this.appearanceId = appearanceId; }
 
-    public long getWorkId() {
-        return workId;
-    }
+    public long getWorkId() { return workId; }
 
-    public void setWorkId(long workId) {
-        this.workId = workId;
-    }
+    public void setWorkId(long workId) { this.workId = workId; }
 
-    public long getConnectionId() {
-        return connectionId;
-    }
+    public long getConnectionId() { return connectionId; }
 
-    public void setConnectionId(long connectionId) {
-        this.connectionId = connectionId;
-    }
+    public void setConnectionId(long connectionId) {this.connectionId = connectionId;}
 
-    public long getPowerstatId() {
-        return powerstatId;
-    }
+    public long getPowerstatId() { return powerstatId; }
 
-    public void setPowerstatId(long powerstatId) {
-        this.powerstatId = powerstatId;
-    }
+    public void setPowerstatId(long powerstatId) { this.powerstatId = powerstatId; }
 
     public String getImageUrl() {
         return imageUrl;

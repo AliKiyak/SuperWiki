@@ -2,16 +2,17 @@ package be.thomasmore.superwiki.classes;
 
 public class Powerstat {
     private long id;
-    private long intelligence;
-    private long strength;
-    private long speed;
-    private long durability;
-    private long power;
-    private long combat;
+    private Integer intelligence;
+    private Integer strength;
+    private Integer speed;
+    private Integer durability;
+    private Integer power;
+    private Integer combat;
 
-    public Powerstat() {}
+    public Powerstat() {
+    }
 
-    public Powerstat(long intelligence, long strength, long speed, long durability, long power, long combat) {
+    public Powerstat(Integer intelligence, Integer strength, Integer speed, Integer durability, Integer power, Integer combat) {
         this.intelligence = intelligence;
         this.strength = strength;
         this.speed = speed;
@@ -20,7 +21,7 @@ public class Powerstat {
         this.combat = combat;
     }
 
-    public Powerstat(long id, long intelligence, long strength, long speed, long durability, long power, long combat) {
+    public Powerstat(long id, Integer intelligence, Integer strength, Integer speed, Integer durability, Integer power, Integer combat) {
         this.id = id;
         this.intelligence = intelligence;
         this.strength = strength;
@@ -38,51 +39,43 @@ public class Powerstat {
         this.id = id;
     }
 
-    public long getIntelligence() {
-        return intelligence;
-    }
+    public Integer getIntelligence() { return intelligence; }
 
-    public void setIntelligence(long intelligence) {
-        this.intelligence = intelligence;
-    }
+    public void setIntelligence(Integer intelligence) { this.intelligence = intelligence; }
 
-    public long getStrength() {
-        return strength;
-    }
+    public Integer getStrength() { return strength; }
 
-    public void setStrength(long strength) {
-        this.strength = strength;
-    }
+    public void setStrength(Integer strength) { this.strength = strength; }
 
-    public long getSpeed() {
-        return speed;
-    }
+    public Integer getSpeed() { return speed; }
 
-    public void setSpeed(long speed) {
-        this.speed = speed;
-    }
+    public void setSpeed(Integer speed) { this.speed = speed; }
 
-    public long getDurability() {
-        return durability;
-    }
+    public Integer getDurability() { return durability; }
 
-    public void setDurability(long durability) {
-        this.durability = durability;
-    }
+    public void setDurability(Integer durability) { this.durability = durability; }
 
-    public long getPower() {
-        return power;
-    }
+    public Integer getPower() { return power; }
 
-    public void setPower(long power) {
-        this.power = power;
-    }
+    public void setPower(Integer power) { this.power = power; }
 
-    public long getCombat() {
-        return combat;
-    }
+    public Integer getCombat() { return combat; }
 
-    public void setCombat(long combat) {
-        this.combat = combat;
+    public void setCombat(Integer combat) { this.combat = combat; }
+
+    @Override
+    public String toString() {
+        return "Powerstat{" +
+                "id=" + id +
+                ", intelligence=" + intelligence +
+                ", strength=" + strength +
+                ", speed=" + speed +
+                ", durability=" + durability +
+                ", power=" + power +
+                ", combat=" + combat +
+                '}';
     }
 }
+
+
+

@@ -20,4 +20,9 @@
         android:name="be.thomasmore.superwiki.ui.info.InfoFragment"
         android:label="Info"
         tools:layout="@layout/info_fragment" />
+    <fragment
+        android:id="@+id/fragment_detail"
+        android:name="be.thomasmore.superwiki.ui.detail.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/detail_fragment" />
 </navigation>

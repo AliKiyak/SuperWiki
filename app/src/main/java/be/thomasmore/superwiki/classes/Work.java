@@ -38,4 +38,13 @@ public class Work {
     public void setOccupation(String occupation) {
         this.occupation = occupation;
     }
+
+    @Override
+    public String toString() {
+        return "Work{" +
+                "id=" + id +
+                ", base='" + base + '\'' +
+                ", occupation='" + occupation + '\'' +
+                '}';
+    }
 }
