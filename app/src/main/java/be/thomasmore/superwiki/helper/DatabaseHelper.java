@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.thomasmore.superwiki.classes.Character;
+import be.thomasmore.superwiki.classes.Powerstat;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -132,5 +133,63 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return characters;
+    }
+
+    public Character getCharacter(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+          "character",
+          new String[] {"id", "name", "powerstatId", "imageUrl"},
+          "id = ?",
+          new String[] { String.valueOf(id) },
+          null,
+          null,
+          null,
+          null
+        );
+
+        Character character = new Character();
+
+        if(cursor.moveToFirst()) {
+            character = new Character(cursor.getLong(0),
+                    cursor.getString(1),
+                    cursor.getLong(2),
+                    cursor.getString(3));
+        }
+
+        cursor.close();
+        db.close();
+        return character;
+    }
+
+    public Powerstat getPowerStat(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                "powerstat",
+                new String[] {"id", "intelligence", "strength", "speed", "durability", "power", "combat" },
+                "id = ?",
+                new String[] { String.valueOf(id) },
+                null,
+                null,
+                null,
+                null
+        );
+
+        Powerstat powerstat = new Powerstat();
+
+        if (cursor.moveToFirst()) {
+            powerstat = new Powerstat(cursor.getLong(0),
+                    cursor.getInt(1),
+                    cursor.getInt(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getInt(6));
+        }
+        cursor.close();
+        db.close();
+        return powerstat;
     }
 }

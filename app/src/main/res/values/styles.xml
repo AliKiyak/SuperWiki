@@ -8,6 +8,12 @@
         <item name="android:windowBackground">@color/colorAccent</item>
     </style>
 
+    <style name="seondFightBackground">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/versus_background</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

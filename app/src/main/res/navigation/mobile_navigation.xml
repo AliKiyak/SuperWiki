@@ -25,4 +25,14 @@
         android:name="be.thomasmore.superwiki.ui.detail.DetailFragment"
         android:label="Detail"
         tools:layout="@layout/detail_fragment" />
+    <fragment
+        android:id="@+id/secondFightFragment"
+        android:name="be.thomasmore.superwiki.ui.fight.SecondFightFragment"
+        android:label="second_fight_fragment"
+        tools:layout="@layout/second_fight_fragment" />
+    <fragment
+        android:id="@+id/thirdFightFragment"
+        android:name="be.thomasmore.superwiki.ui.fight.ThirdFightFragment"
+        android:label="third_fight_fragment"
+        tools:layout="@layout/third_fight_fragment" />
 </navigation>

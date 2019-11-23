@@ -59,7 +59,7 @@ public class SearchFragment extends Fragment {
                             public void run() {
                                 useCharacterAdapter(view);
                             }
-                        }, 2000);
+                        }, 3000);
                 toon(zoekTekst.getText().toString());
             }
             @Override

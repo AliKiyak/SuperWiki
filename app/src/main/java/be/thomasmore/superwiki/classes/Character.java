@@ -19,23 +19,10 @@ public class Character {
         this.characterId = characterId;
         this.naam = naam;
     }
-    public Character(long characterId, String naam, long appearanceId, long workId, long connectionId, long powerstatId, String imageUrl) {
-        this.characterId = characterId;
-        this.naam = naam;
-        this.appearanceId = appearanceId;
-        this.workId = workId;
-        this.connectionId = connectionId;
-        this.powerstatId = powerstatId;
-        this.imageUrl = imageUrl;
-    }
 
-    public Character(long id, long characterId, String naam, long appearanceId, long workId, long connectionId, long powerstatId, String imageUrl) {
+    public Character(long id, String naam, long powerstatId, String imageUrl) {
         this.id = id;
-        this.characterId = characterId;
         this.naam = naam;
-        this.appearanceId = appearanceId;
-        this.workId = workId;
-        this.connectionId = connectionId;
         this.powerstatId = powerstatId;
         this.imageUrl = imageUrl;
     }
