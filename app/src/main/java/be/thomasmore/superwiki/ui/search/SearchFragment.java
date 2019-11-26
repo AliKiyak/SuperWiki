@@ -89,6 +89,7 @@ public class SearchFragment extends Fragment {
 
         Bundle bundle = new Bundle();
         bundle.putLong("characterId", id);
+        bundle.putBoolean("db", false);
 
         detailFragment.setArguments(bundle);
 

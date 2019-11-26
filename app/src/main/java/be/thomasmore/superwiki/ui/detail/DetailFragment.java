@@ -53,17 +53,22 @@ public class DetailFragment extends Fragment {
 
         Bundle bundle = getArguments();
 
+
         db = new DatabaseHelper(getContext());
 
-        getCharacterDetails(bundle.getLong("characterId"));
-        Handler handler = new Handler();
-        handler.postDelayed(
-                new Runnable() {
-                    public void run() {
-                        setViews(view);
-                    }
-                }, 2000);
-
+        if (bundle.getBoolean("db") == true) {
+            getCharacterDetailsDb(bundle);
+            setViews(view);
+        } else {
+            getCharacterDetails(bundle.getLong("characterId"));
+            Handler handler = new Handler();
+            handler.postDelayed(
+                    new Runnable() {
+                        public void run() {
+                            setViews(view);
+                        }
+                    }, 2000);
+        }
         Button save = (Button) view.findViewById(R.id.character_save);
         save.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -90,6 +95,14 @@ public class DetailFragment extends Fragment {
         httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/addfavorite/?token=" + token.toString() + "&characterID=" + characterId.toString());
     }
 
+    private void getCharacterDetailsDb(Bundle bundle) {
+        character = db.getCharacter(bundle.getLong("id"));
+        appearance = db.getAppearance(bundle.getLong("appearanceId"));
+        biography = db.getBiography(bundle.getLong("biographyId"));
+        connection = db.getConnection(bundle.getLong("connectionId"));
+        powerstat = db.getPowerStat(bundle.getLong("powerstatId"));
+        work = db.getWork(bundle.getLong("workId"));
+    }
     private void getCharacterDetails(Long id) {
 
         HttpReader httpReader = new HttpReader();

@@ -35,4 +35,9 @@
         android:name="be.thomasmore.superwiki.ui.fight.ThirdFightFragment"
         android:label="third_fight_fragment"
         tools:layout="@layout/third_fight_fragment" />
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="be.thomasmore.superwiki.ui.favorite.FavoriteFragment"
+        android:label="favorite_fragment"
+        tools:layout="@layout/favorite_fragment" />
 </navigation>

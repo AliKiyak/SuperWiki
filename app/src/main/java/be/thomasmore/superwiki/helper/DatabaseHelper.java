@@ -20,7 +20,7 @@ import be.thomasmore.superwiki.classes.Work;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Versie
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     //Naam van de database
     private static final String DATABASE_NAME = "superwiki";
@@ -216,7 +216,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                Character character = new Character(cursor.getLong(0), cursor.getLong(1), cursor.getString(2));
+                Character character = new Character(
+                        cursor.getLong(0),
+                        cursor.getLong(1),
+                        cursor.getString(2),
+                        cursor.getLong(3),
+                        cursor.getLong(4),
+                        cursor.getLong(5),
+                        cursor.getLong(6),
+                        cursor.getLong(7),
+                        cursor.getString(8));
                 characters.add(character);
             } while (cursor.moveToNext());
         }
@@ -231,7 +240,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(
           "character",
-          new String[] {"id", "name", "powerstatId", "imageUrl"},
+          new String[] {"id","characterId","name", "biographyId" , "appearanceId", "workId", "connectionId","powerstatId", "imageUrl"},
           "id = ?",
           new String[] { String.valueOf(id) },
           null,
@@ -244,9 +253,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()) {
             character = new Character(cursor.getLong(0),
-                    cursor.getString(1),
-                    cursor.getLong(2),
-                    cursor.getString(3));
+                    cursor.getLong(1),
+                    cursor.getString(2),
+                    cursor.getLong(3),
+                    cursor.getLong(4),
+                    cursor.getLong(5),
+                    cursor.getLong(6),
+                    cursor.getLong(7),
+                    cursor.getString(8));
         }
 
         cursor.close();
@@ -283,4 +297,122 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return powerstat;
     }
+
+    public Appearance getAppearance(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(
+                "appearance",
+                new String[] {"id", "gender", "race", "height", "weight", "eyeColor", "hairColor" },
+                "id = ?",
+                new String[] { String.valueOf(id) },
+                null,
+                null,
+                null,
+                null
+        );
+
+        Appearance appearance = new Appearance();
+
+        if (cursor.moveToFirst()) {
+            appearance = new Appearance(cursor.getLong(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6)
+                    );
+        }
+
+        cursor.close();
+        db.close();
+        return appearance;
+    }
+
+    public Work getWork(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(
+                "work",
+                new String[] {"id", "base", "occupation" },
+                "id = ?",
+                new String[] { String.valueOf(id) },
+                null,
+                null,
+                null,
+                null
+        );
+
+        Work work = new Work();
+
+        if (cursor.moveToFirst()) {
+            work = new Work(cursor.getLong(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            );
+        }
+
+        cursor.close();
+        db.close();
+        return work;
+    }
+    public Biography getBiography(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                "biography",
+                new String[] {"id", "fullName", "alterEgo", "firstAppearance", "publisher", "alignment", "placeOfBirth" },
+                "id = ?",
+                new String[] { String.valueOf(id) },
+                null,
+                null,
+                null,
+                null
+        );
+
+        Biography biography = new Biography();
+
+        if (cursor.moveToFirst()) {
+            biography = new Biography(cursor.getLong(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6));
+        }
+        cursor.close();
+        db.close();
+        return biography;
+    }
+
+    public Connection getConnection(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(
+                "connection",
+                new String[] {"id", "groupAffiliation", "relatives" },
+                "id = ?",
+                new String[] { String.valueOf(id) },
+                null,
+                null,
+                null,
+                null
+        );
+
+        Connection connection = new Connection();
+
+        if (cursor.moveToFirst()) {
+            connection = new Connection(cursor.getLong(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            );
+        }
+
+        cursor.close();
+        db.close();
+        return connection;
+    }
+
+
+
+
 }

@@ -10,7 +10,9 @@ public class Character {
     private long workId;
     private long connectionId;
     private long powerstatId;
+    private long biographyId;
     private String imageUrl;
+
 
     public Character() {}
 
@@ -19,12 +21,30 @@ public class Character {
         this.characterId = characterId;
         this.naam = naam;
     }
+    public Character(long id, long characterId, String naam, String imageUrl) {
+        this.id = id;
+        this.characterId = characterId;
+        this.naam = naam;
+        this.imageUrl = imageUrl;
+    }
 
     public Character(long id, String naam, long powerstatId, String imageUrl) {
         this.id = id;
         this.naam = naam;
         this.powerstatId = powerstatId;
         this.imageUrl = imageUrl;
+    }
+
+    public Character(long id, long characterId, String naam,long biographyId, long appearanceId, long workId, long connectionId, long powerstatId, String imageUrl) {
+        this.id = id;
+        this.characterId = characterId;
+        this.naam = naam;
+        this.appearanceId = appearanceId;
+        this.workId = workId;
+        this.connectionId = connectionId;
+        this.powerstatId = powerstatId;
+        this.imageUrl = imageUrl;
+        this.biographyId = biographyId;
     }
 
     public long getId() {
@@ -73,6 +93,14 @@ public class Character {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public long getBiographyId() {
+        return biographyId;
+    }
+
+    public void setBiographyId(long biographyId) {
+        this.biographyId = biographyId;
     }
 
     @NonNull
