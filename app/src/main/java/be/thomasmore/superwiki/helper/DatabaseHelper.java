@@ -1,20 +1,26 @@
 package be.thomasmore.superwiki.helper;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import be.thomasmore.superwiki.classes.Appearance;
+import be.thomasmore.superwiki.classes.Biography;
 import be.thomasmore.superwiki.classes.Character;
+import be.thomasmore.superwiki.classes.Connection;
 import be.thomasmore.superwiki.classes.Powerstat;
+import be.thomasmore.superwiki.classes.Work;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Versie
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 6;
 
     //Naam van de database
     private static final String DATABASE_NAME = "superwiki";
@@ -26,7 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_BIOGRAPHY  = "CREATE TABLE biography (" +
-                "id INTEGER PRIMARY KEY," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "fullName TEXT," +
                 "alterEgo TEXT," +
                 "alias TEXT," +
@@ -37,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_BIOGRAPHY);
 
         String CREATE_TABLE_APPEARANCE = "CREATE TABLE appearance (" +
-                "id INTEGER PRIMARY KEY," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "gender TEXT," +
                 "race TEXT," +
                 "height TEXT," +
@@ -47,19 +53,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_APPEARANCE);
 
         String CREATE_TABLE_WORK = "CREATE TABLE work (" +
-                "id INTEGER PRIMARY KEY," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "base TEXT," +
                 "occupation TEXT)";
         db.execSQL(CREATE_TABLE_WORK);
 
         String CREATE_TABLE_CONNECTION = "CREATE TABLE connection (" +
-                "id INTEGER PRIMARY KEY," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "groupAffiliation TEXT," +
                 "relatives TEXT)";
         db.execSQL(CREATE_TABLE_CONNECTION);
 
         String CREATE_TABLE_POWERSTAT = "CREATE TABLE powerstat (" +
-                "id INTEGER PRIMARY KEY," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "intelligence INTEGER," +
                 "strength INTEGER," +
                 "speed INTEGER," +
@@ -69,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_POWERSTAT);
 
         String CREATE_TABLE_CHARACTER = "CREATE TABLE character (" +
-                "id INTEGER PRIMARY KEY," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "characterId INTEGER," +
                 "name TEXT," +
                 "biographyId INTEGER," +
@@ -86,10 +92,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_TABLE_CHARACTER);
 
-        insertCharacter(db);
     }
 
-    private void insertCharacter(SQLiteDatabase db) {
+    private void initializeDatabase(SQLiteDatabase db) {
         db.execSQL("INSERT INTO biography (id, fullName, alterEgo, alias, firstAppearance, publisher, alignment, placeOfBirth) VALUES ('1', 'Jack Napier', 'No alter egos found.', 'Red Hood I', 'Batman #1 (Spring 1940)', 'DC Comics', 'bad', '-' )");
         db.execSQL("INSERT INTO appearance (id, gender, race, height, weight, eyeColor, hairColor) VALUES ('1', 'Male', 'Human', '196 cm', '86kg', 'Green', 'Green')");
         db.execSQL("INSERT INTO work (id, occupation, base) VALUES ('1', '-', 'Arkham Asylum, Gotham City; Ha-Hacienda')");
@@ -103,6 +108,92 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO connection (id, groupAffiliation, relatives) VALUES ('2', 'Justice League of America, The Legion of Super-Heroes (pre-Crisis as Superboy); Justice Society of America (pre-Crisis Earth-2 version); All-Star Squadron (pre-Crisis Earth-2 version)', 'Lois Lane (wife), Jor-El (father, deceased), Lara (mother, deceased), Jonathan Kent (adoptive father), Martha Kent (adoptive mother), Seyg-El (paternal grandfather, deceased), Zor-El (uncle, deceased), Alura (aunt, deceased), Supergirl (Kara Zor-El, cousin), Superboy (Kon-El/Conner Kent, partial clone)')");
         db.execSQL("INSERT INTO powerstat (id, intelligence, strength, speed, durability, power, combat) VALUES ('2', '94', '100', '100', '100', '100', '85')");
         db.execSQL("INSERT INTO character (id, characterId, name, biographyId, appearanceId, workId, connectionId,powerstatId, imageUrl) VALUES ('2', '64', 'Superman', '2', '2', '2', '2', '2', 'https://www.superherodb.com/pictures2/portraits/10/100/791.jpg')");
+    }
+
+    private Boolean checkIfCharacterExist(Long characterId) {
+        String selectQuery = "SELECT * FROM character WHERE characterId = " + characterId;
+
+        Log.e("id", characterId.toString());
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        int aantal = cursor.getCount();
+
+        cursor.close();
+        db.close();
+
+        if (aantal == 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public void insertCharacter(Character character, Appearance appearance, Biography biography, Connection connection, Powerstat powerstat, Work work) {
+        if (checkIfCharacterExist(character.getCharacterId()) == false) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues valuesAppearance = new ContentValues();
+            ContentValues valuesBiography = new ContentValues();
+            ContentValues valuesConnection = new ContentValues();
+            ContentValues valuesPowerstat = new ContentValues();
+            ContentValues valuesWork = new ContentValues();
+            ContentValues valuesCharacter = new ContentValues();
+
+            valuesAppearance.put("gender", appearance.getGender());
+            valuesAppearance.put("race", appearance.getRace());
+            valuesAppearance.put("height", appearance.getHeight());
+            valuesAppearance.put("weight", appearance.getWeight());
+            valuesAppearance.put("eyeColor", appearance.getEyeColor());
+            valuesAppearance.put("hairColor", appearance.getHairColor());
+
+            long appearanceId = db.insert("appearance", null, valuesAppearance);
+
+            valuesWork.put("occupation", work.getOccupation());
+            valuesWork.put("base", work.getBase());
+
+            long workId = db.insert("work", null, valuesWork);
+
+
+            valuesBiography.put("fullName", biography.getFullName());
+            valuesBiography.put("alterEgo", biography.getAlterEgo());
+            valuesBiography.put("firstAppearance", biography.getFirstAppearance());
+            valuesBiography.put("publisher", biography.getPublisher());
+            valuesBiography.put("alignment", biography.getAlignment());
+            valuesBiography.put("placeOfBirth", biography.getPlaceOfBirth());
+
+            long biographyId = db.insert("biography", null, valuesBiography);
+
+
+            valuesConnection.put("groupAffiliation", connection.getGroupAffiliation());
+            valuesConnection.put("relatives", connection.getRelatives());
+
+            long connectionId = db.insert("connection", null, valuesConnection);
+
+            valuesPowerstat.put("intelligence", powerstat.getIntelligence());
+            valuesPowerstat.put("strength", powerstat.getStrength());
+            valuesPowerstat.put("speed", powerstat.getSpeed());
+            valuesPowerstat.put("durability", powerstat.getDurability());
+            valuesPowerstat.put("power", powerstat.getPower());
+            valuesPowerstat.put("combat", powerstat.getCombat());
+
+            long powerstatId = db.insert("powerstat", null, valuesPowerstat);
+
+
+            valuesCharacter.put("name", character.getNaam());
+            valuesCharacter.put("imageUrl", character.getImageUrl());
+            valuesCharacter.put("appearanceId", appearanceId);
+            valuesCharacter.put("workId", workId);
+            valuesCharacter.put("biographyId", biographyId);
+            valuesCharacter.put("connectionId", connectionId);
+            valuesCharacter.put("powerstatId", powerstatId);
+            valuesCharacter.put("characterId", character.getCharacterId());
+
+            long id = db.insert("character", null, valuesCharacter);
+            db.close();
+
+        }
+
+
     }
 
     @Override
