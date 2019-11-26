@@ -18,9 +18,9 @@
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:src="@drawable/splashscreen1"
             app:civ_border_width="2dp"
-            app:civ_border_color="@color/colorPrimary"
-            android:src="@drawable/splashscreen1"/>
+            app:civ_border_color="#FFFF"/>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
