@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".RegisterActivity"
+    tools:showIn="@layout/activity_register">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="40sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins"
+            android:layout_gravity="center"
+            android:layout_marginTop="50px"
+            />
+
+        <TextView
+            android:id="@+id/usernameLabelRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username:"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins"
+            android:layout_gravity="left"
+            android:layout_marginTop="80dp"
+            />
+        <EditText
+            android:id="@+id/usernameRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            style="@style/Widget.AppCompat.EditText"
+            android:backgroundTint="@color/white"
+            android:maxLines="1"
+            android:inputType="text"
+            >
+        </EditText>
+
+
+        <TextView
+            android:id="@+id/passwordLabelRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password:"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins"
+            android:layout_gravity="left"
+            android:layout_marginTop="50dp"
+            />
+        <EditText
+            android:id="@+id/passwordRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            style="@style/Widget.AppCompat.EditText"
+            android:backgroundTint="@color/white"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            >
+
+
+        </EditText>
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:text="Register"
+            android:background="@color/yellowAccent"
+            android:layout_marginTop="50dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:onClick="register"
+            />
+
+        <Button
+            android:id="@+id/goToLoginButton"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:text="i Already have an account"
+            android:background="@color/white"
+            android:layout_marginTop="50dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/colorAccent"
+            android:layout_gravity="center"
+            android:onClick="goToLogin"
+            />
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
