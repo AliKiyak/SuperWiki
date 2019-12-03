@@ -8,15 +8,15 @@ public class Appearance {
     private long id;
     private String gender;
     private String race;
-    private ArrayList<String> height;
-    private List<String>  weight;
+    private String height;
+    private String weight;
     private String eyeColor;
     private String hairColor;
 
     public Appearance() {
     }
 
-    public Appearance(long id, String gender, String race, ArrayList<String> height, ArrayList<String> weight, String eyeColor, String hairColor) {
+    public Appearance(long id, String gender, String race, String height, String weight, String eyeColor, String hairColor) {
         this.id = id;
         this.gender = gender;
         this.race = race;
@@ -50,19 +50,19 @@ public class Appearance {
         this.race = race;
     }
 
-    public ArrayList<String> getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(ArrayList<String> height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public List<String> getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(List<String> weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 

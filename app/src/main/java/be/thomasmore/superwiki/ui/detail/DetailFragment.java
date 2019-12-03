@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import be.thomasmore.superwiki.classes.Biography;
 import be.thomasmore.superwiki.classes.Connection;
 import be.thomasmore.superwiki.classes.Powerstat;
 import be.thomasmore.superwiki.classes.Work;
+import be.thomasmore.superwiki.helper.DatabaseHelper;
 import be.thomasmore.superwiki.helper.HttpReader;
 import be.thomasmore.superwiki.helper.JsonHelper;
 
@@ -36,6 +38,7 @@ public class DetailFragment extends Fragment {
         return new DetailFragment();
     }
 
+    DatabaseHelper db;
     Character character;
     Appearance appearance;
     Biography biography;
@@ -50,18 +53,56 @@ public class DetailFragment extends Fragment {
 
         Bundle bundle = getArguments();
 
-        getCharacterDetails(bundle.getLong("characterId"));
-        Handler handler = new Handler();
-        handler.postDelayed(
-                new Runnable() {
-                    public void run() {
-                        setViews(view);
-                    }
-                }, 1500);
+
+        db = new DatabaseHelper(getContext());
+
+        if (bundle.getBoolean("db") == true) {
+            getCharacterDetailsDb(bundle);
+            setViews(view);
+        } else {
+            getCharacterDetails(bundle.getLong("characterId"));
+            Handler handler = new Handler();
+            handler.postDelayed(
+                    new Runnable() {
+                        public void run() {
+                            setViews(view);
+                        }
+                    }, 2000);
+        }
+        Button save = (Button) view.findViewById(R.id.character_save);
+        save.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                saveCharacter(view);
+            }
+        });
 
         return view;
     }
 
+    private void saveCharacter(View view) {
+        Integer characterId = Integer.parseInt(character.getCharacterId() + "");
+        Integer token = 123456;
+        db.insertCharacter(character, appearance, biography, connection, powerstat, work);
+        HttpReader httpReader = new HttpReader();
+        httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
+            @Override
+            public void resultReady(String result) {
+                Log.e("test", result);
+            }
+        });
+
+        httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/addfavorite/?token=" + token.toString() + "&characterID=" + characterId.toString());
+    }
+
+    private void getCharacterDetailsDb(Bundle bundle) {
+        character = db.getCharacter(bundle.getLong("id"));
+        appearance = db.getAppearance(bundle.getLong("appearanceId"));
+        biography = db.getBiography(bundle.getLong("biographyId"));
+        connection = db.getConnection(bundle.getLong("connectionId"));
+        powerstat = db.getPowerStat(bundle.getLong("powerstatId"));
+        work = db.getWork(bundle.getLong("workId"));
+    }
     private void getCharacterDetails(Long id) {
 
         HttpReader httpReader = new HttpReader();

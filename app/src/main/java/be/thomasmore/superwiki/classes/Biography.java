@@ -17,7 +17,7 @@ public class Biography {
     public Biography() {
     }
 
-    public Biography(long id, String fullName, String alterEgo, ArrayList<String> aliases, String firstAppearance, String publisher, String alignment, String placeOfBirth) {
+    public Biography(long id, String fullName, String alterEgo, String firstAppearance, String publisher, String alignment, String placeOfBirth) {
         this.id = id;
         this.fullName = fullName;
         this.alterEgo = alterEgo;

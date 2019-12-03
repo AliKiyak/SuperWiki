@@ -50,6 +50,7 @@ public class JsonHelper {
             JSONObject jsonObjectImage = new JSONObject(jsonObjectCharacter.getString("image"));
 
             character.setNaam(jsonObjectCharacter.getString("name"));
+            character.setCharacterId(jsonObjectCharacter.getLong("id"));
             character.setImageUrl(jsonObjectImage.getString("url"));
 
         }  catch (JSONException e) {
