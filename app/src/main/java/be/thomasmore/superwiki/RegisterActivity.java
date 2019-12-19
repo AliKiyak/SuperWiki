@@ -49,8 +49,8 @@ public class RegisterActivity extends AppCompatActivity {
                 public void resultReady(String result) {
                     JsonHelper jsonHelper = new JsonHelper();
 
-
-                    if (result.equals(true)) {
+                    String vresult = result.toString();
+                    if (vresult.contains("true")) {
                         Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                         startActivity(intent);
 
