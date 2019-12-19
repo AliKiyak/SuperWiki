@@ -82,17 +82,17 @@
         <Button
             android:id="@+id/loginButton"
             android:layout_width="230dp"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:text="Login"
             android:background="@color/yellowAccent"
-            android:layout_marginTop="50dp"
             android:textSize="25dp"
             android:fontFamily="@font/poppins"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:onClick="login"
-            android:layout_alignParentRight="true"
-            android:layout_above="@+id/goToRegisterButton"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/goToRegisterButton"
             />
 
         <Button
@@ -101,14 +101,13 @@
             android:layout_height="80dp"
             android:text="Create an account"
             android:background="@color/white"
-            android:layout_marginTop="20dp"
             android:textSize="25dp"
             android:fontFamily="@font/poppins"
             android:textColor="@color/colorAccent"
             android:layout_gravity="center"
             android:onClick="goToRegister"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             />
 
 
