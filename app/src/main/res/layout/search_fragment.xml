@@ -27,6 +27,7 @@
             android:backgroundTint="@color/white"
             android:maxLines="1"
             android:inputType="text"
+            android:layout_marginHorizontal="25dp"
             >
         </EditText>
         <ListView

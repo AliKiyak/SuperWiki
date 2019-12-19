@@ -38,6 +38,12 @@ public class SecondFightFragment extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putLong("character1", character1.getId());
+        outState.putLong("character2", character2.getId());
+        super.onSaveInstanceState(outState);
+    }
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         db = new DatabaseHelper(getContext());

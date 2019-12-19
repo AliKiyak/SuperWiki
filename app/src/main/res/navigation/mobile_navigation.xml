@@ -8,22 +8,22 @@
     <fragment
         android:id="@+id/nav_fight"
         android:name="be.thomasmore.superwiki.ui.fight.FightFragment"
-        android:label="Fight"
+        android:label=""
         tools:layout="@layout/fight_fragment" />
     <fragment
         android:id="@+id/nav_search"
         android:name="be.thomasmore.superwiki.ui.search.SearchFragment"
-        android:label="Search"
+        android:label=""
         tools:layout="@layout/search_fragment" />
     <fragment
         android:id="@+id/nav_info"
         android:name="be.thomasmore.superwiki.ui.info.InfoFragment"
-        android:label="Info"
+        android:label=""
         tools:layout="@layout/info_fragment" />
     <fragment
         android:id="@+id/fragment_detail"
         android:name="be.thomasmore.superwiki.ui.detail.DetailFragment"
-        android:label="Detail"
+        android:label=""
         tools:layout="@layout/detail_fragment" />
     <fragment
         android:id="@+id/secondFightFragment"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/nav_favorite"
         android:name="be.thomasmore.superwiki.ui.favorite.FavoriteFragment"
-        android:label="favorite_fragment"
+        android:label=""
         tools:layout="@layout/favorite_fragment" />
     <fragment
         android:id="@+id/nav_logout"
