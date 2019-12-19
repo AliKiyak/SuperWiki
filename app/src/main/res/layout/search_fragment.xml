@@ -16,7 +16,8 @@
             android:text="Search"
             android:textColor="@color/white"
             android:textSize="50dp"
-            android:fontFamily="@font/poppins" />
+            android:fontFamily="@font/poppins"
+            android:layout_marginLeft="10dp"/>
 
         <EditText
             android:id="@+id/zoektekst"

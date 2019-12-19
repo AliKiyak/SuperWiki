@@ -16,7 +16,8 @@
             android:text="Favorites"
             android:textColor="@color/white"
             android:textSize="50dp"
-            android:fontFamily="@font/poppins" />
+            android:fontFamily="@font/poppins"
+            android:layout_marginLeft="10dp"/>
 
         <ListView
             android:id="@+id/listViewCharacters"
