@@ -34,34 +34,38 @@ public class RegisterActivity extends AppCompatActivity {
         EditText username = (EditText)findViewById(R.id.usernameRegister);
         String usernameResult = username.getText().toString();
 
-        EditText password = (EditText)findViewById(R.id.passwordRegister);
+        final EditText password = (EditText)findViewById(R.id.passwordRegister);
         String passwordResult = password.getText().toString();
 
-        HttpReader httpReader = new HttpReader();
-        httpReader.setOnResultReadyListener((new HttpReader.OnResultReadyListener() {
-            @Override
-            public void resultReady(String result) {
-                JsonHelper jsonHelper = new JsonHelper();
+        final EditText password2 = (EditText)findViewById(R.id.passwordRegister2);
+        String passwordResult2 = password2.getText().toString();
 
 
-                    /*SharedPreferences settings = getSharedPreferences("TokenPrefs", MODE_PRIVATE);
-                    SharedPreferences.Editor prefEditor = settings.edit();
-                    prefEditor.putString("token", newToken);
-                    prefEditor.commit();*/
+        if(passwordResult.equals(passwordResult2)) {
+
+            HttpReader httpReader = new HttpReader();
+            httpReader.setOnResultReadyListener((new HttpReader.OnResultReadyListener() {
+                @Override
+                public void resultReady(String result) {
+                    JsonHelper jsonHelper = new JsonHelper();
 
 
+                    if (result.equals(true)) {
+                        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                        startActivity(intent);
 
-                    Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-                    startActivity(intent);
-
-                    toon("Je account is succesvol aangemaakt!");
-
-
+                        toon("Your account is succesfully created!");
+                    } else {
+                        toon("The username is already in use");
+                    }
 
 
-            }
-        }));
-        httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/registreer/?naam="+ usernameResult +"&wachtwoord=" + passwordResult);
+                }
+            }));
+            httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/registreer/?naam=" + usernameResult + "&wachtwoord=" + passwordResult);
+        }else{
+            toon("The passwords are not the same");
+        }
     }
 
     public void goToLogin(View v){

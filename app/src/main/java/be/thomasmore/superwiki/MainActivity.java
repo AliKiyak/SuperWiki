@@ -125,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
 
                 getFavorites.add(jsonObjectfav.getInt("characterID"));
 
-                toon("" + jsonObjectfav.getInt("characterID"));
 
                 getCharacterDetails(jsonObjectfav.getLong("characterID"));
             }
