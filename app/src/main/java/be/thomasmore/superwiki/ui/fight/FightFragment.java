@@ -3,6 +3,8 @@ package be.thomasmore.superwiki.ui.fight;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,8 @@ public class FightFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Activity activity = getActivity();
+        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         db = new DatabaseHelper(getContext());
         final View view = inflater.inflate(R.layout.fight_fragment, container, false);
         getCharacters();

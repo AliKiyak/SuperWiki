@@ -1,9 +1,12 @@
 package be.thomasmore.superwiki.ui.fight;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -46,7 +49,10 @@ public class SecondFightFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Activity activity = getActivity();
+        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         db = new DatabaseHelper(getContext());
+        getActivity();
         final View view = inflater.inflate(R.layout.second_fight_fragment, container, false);
         Bundle bundle = getArguments();
         getCharacters(bundle.getLong("firstCharacterId"), bundle.getLong("secondCharacterId"));

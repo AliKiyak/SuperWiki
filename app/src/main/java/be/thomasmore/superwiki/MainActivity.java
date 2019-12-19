@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -72,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         db = new DatabaseHelper(getApplicationContext());
 
         getfavoritesFromUser(token);
-
     }
 
     @Override
@@ -166,6 +166,10 @@ public class MainActivity extends AppCompatActivity {
     private void toon(String tekst)
     {
         Toast.makeText(getApplicationContext(), tekst, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 /*
