@@ -3,6 +3,7 @@ package be.thomasmore.superwiki.ui.fight;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.os.VibrationEffect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,8 @@ import com.squareup.picasso.Picasso;
 import be.thomasmore.superwiki.R;
 import be.thomasmore.superwiki.classes.Character;
 import be.thomasmore.superwiki.helper.DatabaseHelper;
+import android.os.Vibrator;
+
 
 public class ThirdFightFragment extends Fragment {
 

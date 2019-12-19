@@ -2,6 +2,8 @@ package be.thomasmore.superwiki.ui.detail;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -57,19 +59,13 @@ public class DetailFragment extends Fragment {
         db = new DatabaseHelper(getContext());
 
         if (bundle.getBoolean("db") == true) {
-            getCharacterDetailsDb(bundle);
+            getCharacterDetailsDb(bundle, view);
             setViews(view);
         } else {
-            getCharacterDetails(bundle.getLong("characterId"));
-            Handler handler = new Handler();
-            handler.postDelayed(
-                    new Runnable() {
-                        public void run() {
-                            setViews(view);
-                        }
-                    }, 2000);
+            getCharacterDetails(bundle.getLong("characterId"), view);
         }
         Button save = (Button) view.findViewById(R.id.character_save);
+        Button delete = (Button) view.findViewById(R.id.character_delete);
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -77,33 +73,59 @@ public class DetailFragment extends Fragment {
             }
         });
 
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteCharacter(view);
+            }
+        });
+
         return view;
     }
 
-    private void saveCharacter(View view) {
+    private void deleteCharacter(final View view) {
+        SharedPreferences settings = getActivity().getSharedPreferences("TokenPrefs", Context.MODE_PRIVATE);
+        String token = settings.getString("token", null);
+
+        HttpReader httpReader = new HttpReader();
+        httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
+            @Override
+            public void resultReady(String result) {
+                db.deleteCharacter(character.getCharacterId());
+                checkIfExists(view);
+            }
+        });
+
+        httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/deletefavorite/?token=" + token.toString() + "&characterID=" + character.getCharacterId());
+    }
+    private void saveCharacter(final View view) {
         Integer characterId = Integer.parseInt(character.getCharacterId() + "");
-        Integer token = 123456;
+        SharedPreferences settings = getActivity().getSharedPreferences("TokenPrefs", Context.MODE_PRIVATE);
+
+        String token = settings.getString("token", null);
         db.insertCharacter(character, appearance, biography, connection, powerstat, work);
         HttpReader httpReader = new HttpReader();
         httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
             @Override
             public void resultReady(String result) {
-                Log.e("test", result);
+                checkIfExists(view);
             }
         });
 
         httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/addfavorite/?token=" + token.toString() + "&characterID=" + characterId.toString());
     }
 
-    private void getCharacterDetailsDb(Bundle bundle) {
+    private void getCharacterDetailsDb(Bundle bundle, View view) {
         character = db.getCharacter(bundle.getLong("id"));
         appearance = db.getAppearance(bundle.getLong("appearanceId"));
         biography = db.getBiography(bundle.getLong("biographyId"));
         connection = db.getConnection(bundle.getLong("connectionId"));
         powerstat = db.getPowerStat(bundle.getLong("powerstatId"));
         work = db.getWork(bundle.getLong("workId"));
+        checkIfExists(view);
+
     }
-    private void getCharacterDetails(Long id) {
+    private void getCharacterDetails(Long id, final View view) {
 
         HttpReader httpReader = new HttpReader();
         httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
@@ -116,6 +138,9 @@ public class DetailFragment extends Fragment {
                 biography = jsonHelper.getBiography(result);
                 connection = jsonHelper.getConnection(result);
                 work = jsonHelper.getWork(result);
+                setViews(view);
+                checkIfExists(view);
+
             }
         });
 
@@ -203,6 +228,19 @@ public class DetailFragment extends Fragment {
     private void toon(String tekst)
     {
         Toast.makeText(getContext(), tekst, Toast.LENGTH_LONG).show();
+    }
+
+    private void checkIfExists(View view) {
+
+        Button saveButton = (Button) view.findViewById(R.id.character_save);
+        Button deleteButton = (Button) view.findViewById(R.id.character_delete);
+        if(db.getCharacterByCharacterId(character.getCharacterId()).getCharacterId()==0) {
+            saveButton.setVisibility(View.VISIBLE);
+            deleteButton.setVisibility(View.INVISIBLE);
+        } else {
+            saveButton.setVisibility(View.INVISIBLE);
+            deleteButton.setVisibility(View.VISIBLE);
+        }
     }
 
 }

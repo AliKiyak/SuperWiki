@@ -3,6 +3,7 @@ package be.thomasmore.superwiki.ui.fight;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +46,8 @@ public class SecondFightFragment extends Fragment {
         getCharacters(bundle.getLong("firstCharacterId"), bundle.getLong("secondCharacterId"));
         initializePictures(view);
         winnerId = calculateWinner();
-
+        Vibrator v = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(5000);
         Handler handler = new Handler();
         handler.postDelayed(
                 new Runnable() {

@@ -277,6 +277,19 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             />
+        <Button
+            android:id="@+id/character_delete"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Delete"
+            android:background="@color/yellowAccent"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
     </LinearLayout>
     </ScrollView>
 </FrameLayout>

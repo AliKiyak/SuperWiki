@@ -206,6 +206,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS biography");
     }
 
+    public void deleteDatabase() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.execSQL("DELETE FROM character");
+        db.execSQL("DELETE FROM work");
+        db.execSQL("DELETE FROM connection");
+        db.execSQL("DELETE FROM powerstat");
+        db.execSQL("DELETE FROM appearance");
+        db.execSQL("DELETE FROM biography");
+        db.close();
+    }
     public List<Character> getCharacters() {
         List<Character> characters = new ArrayList<>();
 
@@ -412,6 +422,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return connection;
     }
 
+
+    public Character getCharacterByCharacterId(long characterId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                "character",
+                new String[] {"id","characterId","name", "biographyId" , "appearanceId", "workId", "connectionId","powerstatId", "imageUrl"},
+                "characterId = ?",
+                new String[] { String.valueOf(characterId) },
+                null,
+                null,
+                null,
+                null
+        );
+
+        Character character = new Character();
+
+        if(cursor.moveToFirst()) {
+            character = new Character(cursor.getLong(0),
+                    cursor.getLong(1),
+                    cursor.getString(2),
+                    cursor.getLong(3),
+                    cursor.getLong(4),
+                    cursor.getLong(5),
+                    cursor.getLong(6),
+                    cursor.getLong(7),
+                    cursor.getString(8));
+        }
+
+        cursor.close();
+        db.close();
+        return character;
+    }
+
+
+    public void deleteCharacter(long id) {
+        Character character = getCharacterByCharacterId(id);
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete("character","characterId = ?", new String[] {String.valueOf(character.getCharacterId())});
+        db.delete("biography","id = ?", new String[] {String.valueOf(character.getBiographyId())});
+        db.delete("appearance","id = ?", new String[] {String.valueOf(character.getAppearanceId())});
+        db.delete("work","id = ?", new String[] {String.valueOf(character.getWorkId())});
+        db.delete("connection","id = ?", new String[] {String.valueOf(character.getConnectionId())});
+        db.delete("powerstat","id = ?", new String[] {String.valueOf(character.getPowerstatId())});
+
+        db.close();
+    }
 
 
 

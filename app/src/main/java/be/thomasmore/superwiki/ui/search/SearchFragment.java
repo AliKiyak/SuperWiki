@@ -52,15 +52,7 @@ public class SearchFragment extends Fragment {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                getCharacters(zoekTekst.getText().toString());
-                Handler handler = new Handler();
-                handler.postDelayed(
-                        new Runnable() {
-                            public void run() {
-                                useCharacterAdapter(view);
-                            }
-                        }, 3000);
-                toon(zoekTekst.getText().toString());
+                getCharacters(zoekTekst.getText().toString(), view);
             }
             @Override
             public void afterTextChanged(Editable s) { }
@@ -69,13 +61,14 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-    private void getCharacters(String zoektekst) {
+    private void getCharacters(String zoektekst, final View view) {
         HttpReader httpReader = new HttpReader();
         httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
             @Override
             public void resultReady(String result) {
                 JsonHelper jsonHelper = new JsonHelper();
                 characters = jsonHelper.getCharacters(result);
+                useCharacterAdapter(view);
             }
         });
 

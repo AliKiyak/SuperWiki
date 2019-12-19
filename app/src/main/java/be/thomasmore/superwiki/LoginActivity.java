@@ -31,9 +31,6 @@ public class LoginActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
-
-
     }
 
     private void isLoggedIn(){
@@ -101,6 +98,11 @@ public class LoginActivity extends AppCompatActivity {
     public void goToRegister(View v){
         Intent intent = new Intent(getBaseContext(), RegisterActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
     private void toon(String tekst)
