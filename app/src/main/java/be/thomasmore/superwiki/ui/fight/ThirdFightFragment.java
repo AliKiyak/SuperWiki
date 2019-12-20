@@ -37,6 +37,7 @@ public class ThirdFightFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        setRetainInstance(true);
         db = new DatabaseHelper(getContext());
         View view = inflater.inflate(R.layout.third_fight_fragment, container, false);
         Bundle bundle = getArguments();

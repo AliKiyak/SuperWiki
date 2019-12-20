@@ -49,8 +49,8 @@ public class SecondFightFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        Activity activity = getActivity();
-        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        setRetainInstance(true);
         db = new DatabaseHelper(getContext());
         getActivity();
         final View view = inflater.inflate(R.layout.second_fight_fragment, container, false);

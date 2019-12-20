@@ -23,7 +23,7 @@
     <TextView
         android:layout_height="30dp"
         android:fontFamily="@font/poppins"
-        android:text="Team 4"
+        android:text="SuperWiki"
         android:textSize="20dp"
         android:gravity="center_horizontal"
         android:layout_width="fill_parent"

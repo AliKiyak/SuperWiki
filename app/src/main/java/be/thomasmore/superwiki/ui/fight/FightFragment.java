@@ -39,8 +39,7 @@ public class FightFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        Activity activity = getActivity();
-        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
         db = new DatabaseHelper(getContext());
         final View view = inflater.inflate(R.layout.fight_fragment, container, false);
         getCharacters();
@@ -82,7 +81,7 @@ public class FightFragment extends Fragment {
         Character character1 = (Character) spinner1.getSelectedItem();
         Character character2 = (Character) spinner2.getSelectedItem();
 
-        toon(character1.getNaam() + " V.S " + character2.getNaam());
+        //toon(character1.getNaam() + " V.S " + character2.getNaam());
 
         SecondFightFragment secondFightFragment = new SecondFightFragment();
 
