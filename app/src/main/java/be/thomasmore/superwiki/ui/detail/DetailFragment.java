@@ -187,7 +187,7 @@ public class DetailFragment extends Fragment {
         race.setText("Race: " + appearance.getRace());
         eyeColor.setText("Eye color: " + appearance.getEyeColor());
         hairColor.setText("Hair color: " + appearance.getHairColor());
-        height.setText("Height: " + appearance.getHairColor());
+        height.setText("Height: " + appearance.getHeight());
         weight.setText("Weight: " + appearance.getWeight());
     }
 
