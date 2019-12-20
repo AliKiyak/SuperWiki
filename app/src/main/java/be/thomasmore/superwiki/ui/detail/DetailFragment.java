@@ -95,6 +95,7 @@ public class DetailFragment extends Fragment {
                 checkIfExists(view);
             }
         });
+        toon("Favorite is deleted!");
 
         httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/deletefavorite/?token=" + token.toString() + "&characterID=" + character.getCharacterId());
     }
@@ -111,6 +112,7 @@ public class DetailFragment extends Fragment {
                 checkIfExists(view);
             }
         });
+        toon("Favorite is added!");
 
         httpReader.execute("http://superwiki.dinvanwezemael.space/index.php/addfavorite/?token=" + token.toString() + "&characterID=" + characterId.toString());
     }
