@@ -1,5 +1,6 @@
 package be.thomasmore.superwiki.ui.fight;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -50,7 +51,9 @@ public class SecondFightFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         setRetainInstance(true);
+
         db = new DatabaseHelper(getContext());
         getActivity();
         final View view = inflater.inflate(R.layout.second_fight_fragment, container, false);
