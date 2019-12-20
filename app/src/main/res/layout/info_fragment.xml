@@ -16,7 +16,7 @@
             android:layout_width="311dp"
             android:layout_height="39dp"
             android:text="@string/authorstitle"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textColor="#FFFFFF"
             android:gravity="top"
             android:fontFamily="@font/poppins"
@@ -29,7 +29,7 @@
             android:gravity="top"
             android:text="@string/made_by"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:fontFamily="@font/poppins"/>
 
             <LinearLayout
@@ -40,25 +40,22 @@
 
                 <ImageView
                     android:layout_width="70dp"
-                    android:layout_height="174dp"
+                    android:layout_height="125dp"
                     android:src="@drawable/ali_kiyak_foto"
                     android:foreground="@drawable/rounded_fg"
-                    android:layout_margin="10dp"
                     android:layout_marginRight="20dp"/>
 
                 <ImageView
                     android:layout_width="70dp"
-                    android:layout_height="174dp"
+                    android:layout_height="125dp"
                     android:foreground="@drawable/rounded_fg"
                     android:src="@drawable/din_vanwezemael_foto"
-                    android:layout_margin="10dp"
                     android:layout_marginRight="20dp"/>
                 <ImageView
                     android:layout_width="70dp"
-                    android:layout_height="174dp"
+                    android:layout_height="125dp"
                     android:foreground="@drawable/rounded_fg"
                     android:src="@drawable/wesley_monten_foto"
-                    android:layout_margin="10dp"
                     android:layout_marginRight="20dp"/>
 
             </LinearLayout>
@@ -69,7 +66,7 @@
             android:layout_height="39dp"
             android:text="@string/appinfotitle"
             android:fontFamily="@font/poppins"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textColor="#FFFFFF"
             android:gravity="top" />
 
@@ -80,7 +77,7 @@
             android:gravity="top"
             android:text="@string/info"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:fontFamily="@font/poppins"/>
 
     </LinearLayout>
