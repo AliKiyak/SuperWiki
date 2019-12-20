@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_title"
-            android:textSize="40sp"
+            android:textSize="25sp"
             android:textColor="#FFFFFF"
             android:fontFamily="@font/poppins"
             android:layout_gravity="left"
@@ -31,11 +31,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_username"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
             android:fontFamily="@font/poppins"
             android:layout_gravity="left"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_below="@+id/login"
             />
         <EditText
@@ -57,11 +57,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_password"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
             android:fontFamily="@font/poppins"
             android:layout_gravity="left"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_below="@+id/username"
             />
         <EditText
@@ -81,11 +81,11 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="230dp"
-            android:layout_height="80dp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:text="@string/login_loginButton"
             android:background="@color/yellowAccent"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:fontFamily="@font/poppins"
             android:textColor="@color/white"
             android:layout_gravity="center"
@@ -97,11 +97,11 @@
 
         <Button
             android:id="@+id/goToRegisterButton"
-            android:layout_width="230dp"
-            android:layout_height="80dp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:text="@string/login_registerButton"
             android:background="@color/white"
-            android:textSize="25dp"
+            android:textSize="15dp"
             android:fontFamily="@font/poppins"
             android:textColor="@color/colorAccent"
             android:layout_gravity="center"

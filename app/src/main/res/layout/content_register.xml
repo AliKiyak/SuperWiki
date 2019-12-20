@@ -100,10 +100,10 @@
         <Button
             android:id="@+id/registerButton"
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:text="@string/register_registerButton"
             android:background="@color/yellowAccent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:fontFamily="@font/poppins"
             android:textColor="@color/white"
@@ -114,7 +114,7 @@
         <Button
             android:id="@+id/goToLoginButton"
             android:layout_width="300dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="@string/register_loginButton"
             android:background="@color/white"
             android:layout_marginTop="10dp"

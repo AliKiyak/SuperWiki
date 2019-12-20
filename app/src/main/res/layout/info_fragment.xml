@@ -35,10 +35,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="center">
 
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="70dp"
                     android:layout_height="174dp"
                     android:src="@drawable/ali_kiyak_foto"
                     android:foreground="@drawable/rounded_fg"
@@ -46,14 +47,14 @@
                     android:layout_marginRight="20dp"/>
 
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="70dp"
                     android:layout_height="174dp"
                     android:foreground="@drawable/rounded_fg"
                     android:src="@drawable/din_vanwezemael_foto"
                     android:layout_margin="10dp"
                     android:layout_marginRight="20dp"/>
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="70dp"
                     android:layout_height="174dp"
                     android:foreground="@drawable/rounded_fg"
                     android:src="@drawable/wesley_monten_foto"

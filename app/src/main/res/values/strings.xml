@@ -31,7 +31,7 @@
     <string name="register_password">Password:</string>
     <string name="register_passwordReapeat">Repeat password:</string>
     <string name="register_registerButton">Register</string>
-    <string name="register_loginButton">I Already have an account</string>
+    <string name="register_loginButton">Already an account</string>
 
     <string name="made_by">
         This app was made by Din Vanwezemael, Ali Kiyak and Wesley Monten
