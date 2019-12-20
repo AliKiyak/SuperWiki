@@ -20,7 +20,7 @@ import be.thomasmore.superwiki.classes.Work;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Versie
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
 
     //Naam van de database
     private static final String DATABASE_NAME = "superwiki";

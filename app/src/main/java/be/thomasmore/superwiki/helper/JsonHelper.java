@@ -108,11 +108,15 @@ public class JsonHelper {
         try {
             JSONObject jsonObjectCharacter = new JSONObject(jsonTekst);
             JSONObject jsonObjectAppearance = new JSONObject(jsonObjectCharacter.getString("appearance"));
+            JSONArray jsonHeight = jsonObjectAppearance.getJSONArray("height");
+            JSONArray jsonWeight = jsonObjectAppearance.getJSONArray("weight");
 
             appearance.setGender(jsonObjectAppearance.getString("gender"));
             appearance.setRace(jsonObjectAppearance.getString("race"));
             appearance.setEyeColor(jsonObjectAppearance.getString("eye-color"));
             appearance.setHairColor(jsonObjectAppearance.getString("hair-color"));
+            appearance.setHeight(jsonHeight.get(1).toString());
+            appearance.setWeight(jsonWeight.get(1).toString());
 
 
         }  catch (JSONException e) {
