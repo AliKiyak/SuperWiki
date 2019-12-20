@@ -229,6 +229,22 @@
                 android:text="Hair color:"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
+            <TextView
+                android:id="@+id/appearance_height"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="top"
+                android:text="Height:"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/appearance_weight"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="top"
+                android:text="Weight:"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/character_work"
