@@ -180,11 +180,15 @@ public class DetailFragment extends Fragment {
         TextView race = (TextView) view.findViewById(R.id.appearance_race);
         TextView eyeColor = (TextView) view.findViewById(R.id.appearance_eye_color);
         TextView hairColor = (TextView) view.findViewById(R.id.appearance_hair_color);
+        TextView height = (TextView) view.findViewById(R.id.appearance_height);
+        TextView weight = (TextView) view.findViewById(R.id.appearance_weight);
 
         gender.setText("Gender: " + appearance.getGender());
         race.setText("Race: " + appearance.getRace());
         eyeColor.setText("Eye color: " + appearance.getEyeColor());
         hairColor.setText("Hair color: " + appearance.getHairColor());
+        height.setText("Height: " + appearance.getHeight());
+        weight.setText("Weight: " + appearance.getWeight());
     }
 
     private void setBiographyViews(View view) {
