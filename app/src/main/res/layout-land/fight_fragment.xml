@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:text="@string/titlefight"
         android:textColor="@color/white"
-        android:textSize="50dp"
+        android:textSize="35dp"
         android:fontFamily="@font/poppins"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="20dp"/>
@@ -23,13 +23,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/firstcharacter"
                 android:textColor="@color/white"
-                android:textSize="32dp"
-                android:fontFamily="@font/poppins"
-                android:layout_marginLeft="30dp"/>
+                android:textSize="30dp"
+                android:fontFamily="@font/poppins"/>
 
             <Spinner
                 android:id="@+id/characterspinner1"
@@ -46,10 +45,10 @@
             android:layout_height="wrap_content"
             android:text="V.S"
             android:fontFamily="@font/poppins"
-            android:textSize="50dp"
+            android:textSize="25dp"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_marginTop="35dp"/>
+            android:layout_marginTop="50dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,9 +59,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/secondcharactershort"
                 android:textColor="@color/white"
-                android:textSize="32dp"
-                android:fontFamily="@font/poppins"
-                android:layout_marginLeft="30dp"/>
+                android:textSize="30dp"
+                android:fontFamily="@font/poppins"/>
 
             <Spinner
                 android:id="@+id/characterspinner2"
@@ -76,11 +74,11 @@
     </LinearLayout>
     <Button
         android:id="@+id/fightbutton"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:text="@string/titlefight"
         android:background="@color/yellowAccent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:textSize="25dp"
         android:fontFamily="@font/poppins"
         android:textColor="@color/white"

@@ -13,8 +13,8 @@
 
        <de.hdodenhof.circleimageview.CircleImageView
            android:id="@+id/first_character_image"
-           android:layout_width="200dp"
-           android:layout_height="200dp"
+           android:layout_width="150dp"
+           android:layout_height="150dp"
            android:layout_marginTop="50dp"
            android:layout_marginLeft="30dp"
            android:layout_alignParentLeft="true"
@@ -24,8 +24,8 @@
 
        <de.hdodenhof.circleimageview.CircleImageView
            android:id="@+id/second_character_image"
-           android:layout_width="200dp"
-           android:layout_height="200dp"
+           android:layout_width="150dp"
+           android:layout_height="150dp"
            android:layout_marginRight="30dp"
            android:layout_marginBottom="35dp"
            android:layout_alignParentRight="true"

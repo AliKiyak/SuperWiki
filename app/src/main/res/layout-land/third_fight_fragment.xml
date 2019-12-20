@@ -12,7 +12,7 @@
         android:text="@string/winnertitle"
         android:fontFamily="@font/poppins"
         android:textColor="@color/white"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:layout_marginTop="15dp"
         android:gravity="center">
 
@@ -20,8 +20,8 @@
     </TextView>
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/winner_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
