@@ -3,9 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp">
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+
 
     <TextView
         android:id="@+id/authors_"
@@ -27,33 +25,7 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:fontFamily="@font/poppins"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ali_kiyak_foto"
-            android:foreground="@drawable/rounded_fg"
-            android:layout_marginRight="20dp"/>
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:foreground="@drawable/rounded_fg"
-            android:src="@drawable/din_vanwezemael_foto"
-            android:layout_marginRight="20dp"/>
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:foreground="@drawable/rounded_fg"
-            android:src="@drawable/wesley_monten_foto"
-            android:layout_marginRight="20dp"/>
-
-    </LinearLayout>
     <TextView
         android:id="@+id/app_info_"
         android:layout_width="311dp"
@@ -73,5 +45,4 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:fontFamily="@font/poppins"/>
-    </ScrollView>
 </LinearLayout>

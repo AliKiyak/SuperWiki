@@ -73,13 +73,12 @@
         <TextView
             android:id="@+id/with_the_su"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:gravity="top"
             android:text="@string/info"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
             android:fontFamily="@font/poppins"/>
-
     </LinearLayout>
 
 </FrameLayout>
